@@ -4,12 +4,17 @@ const amount = document.getElementsByClassName("amount")[0];
 const code = document.getElementsByClassName("code")[0];
 //the function will start after the button is clicked.
 buttons.addEventListener("click", function () {
+
   //if the input field is empty it will show alert.
   if (amount.value === "" || code.value === "") {
-    alert("enter the valid input");
+    alert("Enter the valid input");
   }
-   //if the input value is not empty
-  else {
+  // if the amount.value is not a number then it will show alert.
+  if (isNaN(amount.value)) {
+    code.value ="";
+    amount.value ="";
+    alert("Please enter a valid numeric amount");
+  }
     //if the currency code input is in capital letter then it will cheng to lowercase.
     const currencyCode = code.value.toLowerCase();
     //using fetch to get data from api.
@@ -46,5 +51,4 @@ buttons.addEventListener("click", function () {
           window.location.reload();
         });
       });
-  }
 });
