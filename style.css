@@ -56,7 +56,7 @@ img {
 }
 } */
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .valueget,
   .result {
     display: block;
@@ -74,4 +74,28 @@ img {
   .button {
     margin: 1rem auto 1rem auto !important;
   }
+} */
+
+@media screen and (max-width: 768px) {
+  .valueget,
+  .result {
+    display: block;
+    margin: 0 auto;
+    max-width: 50rem; 
+    text-align: center; 
+  }
+
+  .result {
+    margin-top: 1rem !important;
+  }
+
+  .code,
+  .amount,
+  .button {
+    display: block;
+    margin: 1rem auto !important; 
+    width: 50%; 
+
+  }
 }
+
