@@ -10,16 +10,20 @@ buttons.addEventListener("click", function () {
   }
    //if the input value is not empty
   else {
+    //if the currency code input is in capital letter then it will cheng to lowercase.
+    const currencyCode = code.value.toLowerCase();
     //using fetch to get data from api.
     //the api have template litrals to get currency code value.
+    
+    console.log(currencyCode);
     const response = fetch(
-      `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${code.value}.json`
+      `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${currencyCode}.json`
     );
     response
       .then((data) => data.json()) 
       .then((result) => {
         //if we get usd in code.value .It will get the inr value in api for usd
-        let indrupees = result[code.value].inr;
+        let indrupees = result[currencyCode].inr;
         let rupees = (indrupees * amount.value).toFixed(2);
         //whenever we get the result the search button will be disappear.
         buttons.style.display = "none";
@@ -27,7 +31,8 @@ buttons.addEventListener("click", function () {
         //creating a h2 to display the amount in rupees
         let div = document.createElement("div");
         let para = document.createElement("h2");
-        para.innerHTML = `${amount.value} ${code.value} is ${rupees} Rupees`;
+        
+        para.innerHTML = `${amount.value} ${code.value.toUpperCase()} is ${rupees} Rupees`;
         div.classList = "result ms-2 align-content-sm-center";
         let refresh = document.createElement("button");
         refresh.innerText = "Reset";
