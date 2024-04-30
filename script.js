@@ -48,5 +48,6 @@ buttons.addEventListener("click", function () {
         reset.addEventListener("click", () => {
           window.location.reload();
         });
-      });
+      })
+      .catch((error)=>error.alert("No data please refer api"));
 });
