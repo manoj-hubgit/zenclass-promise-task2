@@ -19,8 +19,6 @@ buttons.addEventListener("click", function () {
     const currencyCode = code.value.toLowerCase();
     //using fetch to get data from api.
     //the api have template litrals to get currency code value.
-    
-    console.log(currencyCode);
     const response = fetch(
       `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${currencyCode}.json`
     );
